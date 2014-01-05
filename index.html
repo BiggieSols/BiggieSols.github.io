@@ -9,78 +9,7 @@
     <script src="view.js"></script>
 
     <link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
-
-    <style type="text/css">
-      html body {
-        overflow: hidden;
-        height: 100%;
-      }
-
-      body {
-        background-image:url('paper_fibers.png');
-        background-repeat:repeat;
-      }
-
-
-      h1 {
-        font-size: 40px;
-        color: rgb(240, 240, 240);
-        padding-top: 15px;
-        text-align: center;
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      .cell {
-        background-color: gray;
-        height: 20px;
-        width: 20px;
-        border: 1px solid white;
-        float: left;
-        box-sizing: border-box;
-      }
-
-      .apple {
-        background-color: red;
-      }
-
-      .snake {
-        /*
-        nothing in here anymore since we render 
-        the gradient dynamically with jQuery 
-        */        
-      }
-
-      .snakeOverlap {
-        background-color: orange !important;
-        border: 1px solid orange !important;
-      }
-
-      .wrapper {
-        width: 400px;
-        height: 400px;
-        margin: auto;
-        padding: 4px;
-      }
-
-      .above-grid {
-        text-align: center;
-        margin-top: 15px;
-      }
-
-      .score-display {
-        margin-top: 30px;
-        font-size: 25px;
-        text-align: center;
-      }
-
-      #header {
-        background-color: #42413e;
-        height: 70px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="snake-style.css">
   
 
   </head>
@@ -95,10 +24,10 @@
     <p class="above-grid">eat apples to grow your snake, run into a wall or yourself and you're dead!</p>
 
     <div class="score-display">Score: 
-      <span id="score" class="score-display"></span>
+      <span id="score" class="score-display">0</span>
     </div>
 
-    <div class="wrapper"></div>
+    <div id="grid"></div>
     <br><br><br><br><br>
   </body>
 </html>
