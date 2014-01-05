@@ -39,7 +39,7 @@ View.prototype.step = function() {
 View.prototype.checkGameOver = function() {
   if(this.board.checkGameOver()) {
     clearInterval(this.interval);
-    alert("game over! reload the page to play again");
+    alert("game over!");
     return true;
   }
 };
