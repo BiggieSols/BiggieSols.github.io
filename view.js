@@ -57,19 +57,22 @@ View.prototype.render = function() {
 
 View.prototype.renderSnake = function() {
   var that = this;
-
   var segs = this.board.snake.segments;
   var greenStartVal = 255;
   var greenEndVal = 100;
   var interval = Math.floor((greenEndVal - greenStartVal) / segs.length);
+
   segs.forEach(function(seg) {
-    var childNum = (seg[0]*20 + seg[1] + 1);
-    var rgb = ('rgb(0,'+ greenStartVal + ',0')
-    $('#grid > :nth-child(' + childNum +')')
-      .css({'background-color': rgb, 'border' : '1px solid ' + rgb});
-    greenStartVal += interval;
+    var range = _.range(that.board.DIMENSION)
+    if(_.contains(range, seg[0]) && _.contains(range, seg[1])) {
+      var childNum = (seg[0] * 20 + seg[1] + 1);
+      var rgb = ('rgb(0,'+ greenStartVal + ',0')
+      $('#grid > :nth-child(' + childNum +')')
+        .css({'background-color': rgb, 'border' : '1px solid ' + rgb});
+      greenStartVal += interval;
+    }
   })
-}
+};
 
 View.prototype.renderScore = function() {
   var start = parseInt($('#score').text().replace(",", ""))
