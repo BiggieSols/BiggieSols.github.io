@@ -2,6 +2,7 @@ function Board() {
   this.snake = new Snake();
   this.apples = [];
   this.DIMENSION = 20;
+  this.APPLECOUNT = 3
   this.grid = this.createGrid();
   this.updateGrid();
   this.score = 0;
@@ -74,7 +75,10 @@ Board.prototype.createGrid = function() {
   for(var i = 0; i < this.DIMENSION; i++) {
     newGrid.push(new Array(this.DIMENSION));
   }
-  this.generateApple();
+
+  for(var i = 0; i < this.APPLECOUNT; i++) {
+    this.generateApple();    
+  }
   return newGrid;
 };
 
