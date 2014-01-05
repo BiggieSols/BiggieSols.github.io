@@ -13,6 +13,7 @@ $(document).ready(function() {
   });
 
   $(window).on('keydown', function(event) {
+    event.preventDefault();
     v.handleKeyEvent(event)
   })
 })
@@ -75,7 +76,7 @@ View.prototype.renderSnake = function() {
 };
 
 View.prototype.renderScore = function() {
-  var start = parseInt($('#score').text().replace(",", ""))
+  var start = parseInt($('#score').text().replaceAll(",", ""))
   var end = this.board.score
 
   // Animate the element's value from x to y:

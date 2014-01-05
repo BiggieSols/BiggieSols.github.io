@@ -6,3 +6,8 @@ Array.prototype.includesArr = function(otherArr) {
   }
   return false;
 }
+
+String.prototype.replaceAll = function (find, replace) {
+    var str = this;
+    return str.replace(new RegExp(find, 'g'), replace);
+};
