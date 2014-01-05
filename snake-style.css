@@ -29,6 +29,8 @@ h3 {
   border: 1px solid white;
   float: left;
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
 }
 
 .apple {
@@ -39,7 +41,9 @@ h3 {
   /*
   nothing in here anymore since we render 
   the gradient dynamically with jQuery 
-  */        
+  */
+  background-color: green;
+  border: 1px solid green;        
 }
 
 .snakeOverlap {
@@ -59,8 +63,8 @@ h3 {
 }
 
 #grid {
-  width: 400px;
-  height: 400px;
+  width: 415px;
+  height: 415px;
   margin: auto;
   padding: 20px;
 }
