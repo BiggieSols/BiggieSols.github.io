@@ -57,12 +57,11 @@ View.prototype.renderSnake = function() {
   var interval = Math.floor((greenEndVal - greenStartVal) / segs.length);
   segs.forEach(function(seg) {
     var childNum = (seg[0]*20 + seg[1] + 1);
+    var rgb = ('rgb(0,'+ greenStartVal + ',0')
     $('#grid > :nth-child(' + childNum +')')
-      .css('background-color', 'rgb(0,'+ greenStartVal + ',0');
+      .css({'background-color': rgb, 'border' : '1px solid ' + rgb});
     greenStartVal += interval;
   })
-
-
 }
 
 View.prototype.renderScore = function() {
@@ -90,7 +89,7 @@ View.prototype.renderScore = function() {
 
 View.prototype.clearCellClasses = function() {
   $('.cell').attr('class', 'cell');
-  $('.cell').css('background-color', '');
+  $('.cell').css({'background-color': '', 'border': ''});
 };
 
 View.prototype.updateCellClass = function(row, col) {
