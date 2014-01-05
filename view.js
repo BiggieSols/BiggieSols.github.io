@@ -3,7 +3,14 @@ $(document).ready(function() {
   for(var i = 0; i < Math.pow(v.board.DIMENSION, 2); i++) {
     $('#grid').append('<div class="cell"></div>')  
   }
-  v.run();
+
+  $('#start').on('click', function() {
+    $('#grid').focus();
+    clearInterval(v.interval)
+    v = new View();
+    $('#score').text("0")
+    v.run();
+  });
 
   $(window).on('keydown', function(event) {
     v.handleKeyEvent(event)
@@ -119,7 +126,7 @@ View.prototype.updateCellClass = function(row, col) {
 View.prototype.handleKeyEvent = function(event) {
   var newDir;
 
-  switch(event.keyCode){
+    switch(event.keyCode){
     case 37:
       newDir = 'W';
       break;
