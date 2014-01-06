@@ -1,31 +1,31 @@
 $(document).ready(function() {
   v = new View();
   for(var i = 0; i < Math.pow(v.board.DIMENSION, 2); i++) {
-    $('#grid').append('<div class="cell"></div>')  
+    $("#grid").append("<div class='cell'></div>");
   }
 
-  $('#start').on('click', function() {
-    $('#grid').focus();
-    clearInterval(v.interval)
+  $("#start").on("click", function() {
+    $("#grid").focus();
+    clearInterval(v.interval);
     v = new View();
-    $('#score').text("0")
+    $("#score").text("0");
     v.run();
   });
 
-  $(window).on('keydown', function(event) {
+  $(window).on("keydown", function(event) {
     event.preventDefault();
-    v.handleKeyEvent(event)
-  })
-})
+    v.handleKeyEvent(event);
+  });
+});
 
 function View() {
   this.board = new Board();
   this.SPEED = 100;
-};
+}
 
 View.prototype.run = function() {
   this.render();
-  this.interval = setInterval(this.step.bind(this), this.SPEED)
+  this.interval = setInterval(this.step.bind(this), this.SPEED);
 };
 
 View.prototype.step = function() {
@@ -34,7 +34,7 @@ View.prototype.step = function() {
   this.board.updateGrid();
 
   this.render();
-  this.checkGameOver()
+  this.checkGameOver();
 };
 
 View.prototype.checkGameOver = function() {
@@ -64,26 +64,26 @@ View.prototype.renderSnake = function() {
   var interval = Math.floor((greenEndVal - greenStartVal) / segs.length);
 
   segs.forEach(function(seg) {
-    var range = _.range(that.board.DIMENSION)
+    var range = _.range(that.board.DIMENSION);
     if(_.contains(range, seg[0]) && _.contains(range, seg[1])) {
       var childNum = (seg[0] * 20 + seg[1] + 1);
-      var rgb = ('rgb(0,'+ greenStartVal + ',0')
-      $('#grid > :nth-child(' + childNum +')')
-        .css({'background-color': rgb, 'border' : '1px solid ' + rgb});
+      var rgb = ("rgb(0,"+ greenStartVal + ",0");
+      $("#grid > :nth-child(" + childNum +")")
+        .css({"background-color": rgb, "border" : "1px solid " + rgb});
       greenStartVal += interval;
     }
-  })
+  });
 };
 
 View.prototype.renderScore = function() {
-  var start = parseInt($('#score').text().replaceAll(",", ""))
-  var end = this.board.score
+  var start = parseInt($("#score").text().replaceAll(",", ""));
+  var end = this.board.score;
 
-  // Animate the element's value from x to y:
+  // Animate the element"s value from x to y:
   $({score: start}).animate({score: end}, {
       duration: 100,
-      step: function() { 
-          $('#score').text(commaSeparateNumber(Math.round(this.score)));
+      step: function() {
+          $("#score").text(commaSeparateNumber(Math.round(this.score)));
       }
   });
 
@@ -99,31 +99,31 @@ View.prototype.renderScore = function() {
 
 
 View.prototype.clearCellClasses = function() {
-  $('.cell').attr('class', 'cell');
-  $('.cell').css({'background-color': '', 'border': ''});
+  $(".cell").attr("class", "cell");
+  $(".cell").css({"background-color": "", "border": ""});
 };
 
 View.prototype.updateCellClass = function(row, col) {
   var classToAdd;
   switch(this.board.grid[row][col]) {
     case "S":
-      classToAdd = "snake"
+      classToAdd = "snake";
       break;
     case "SA":
-      classToAdd = "snake"
+      classToAdd = "snake";
       break;
     case "A":
-      classToAdd = "apple"
+      classToAdd = "apple";
       break;
     case "SS":
-      classToAdd = "snakeOverlap"
+      classToAdd = "snakeOverlap";
       break;
   }
 
   if(classToAdd) {
     // sets the relationship between the grid coordinate and child div
-    var childNum = (row * 20 + col) + 1
-    $('#grid > :nth-child(' + childNum +')').addClass(classToAdd);
+    var childNum = (row * 20 + col) + 1;
+    $("#grid > :nth-child(" + childNum +")").addClass(classToAdd);
   }
 };
 
@@ -132,20 +132,20 @@ View.prototype.handleKeyEvent = function(event) {
 
     switch(event.keyCode){
     case 37:
-      newDir = 'W';
+      newDir = "W";
       break;
     case 38:
-      newDir = 'N';
+      newDir = "N";
       break;
     case 39:
-      newDir = 'E';
+      newDir = "E";
       break;
     case 40:
-      newDir = 'S';
+      newDir = "S";
       break;
     }
 
   if(newDir) {
-    this.board.snake.turn(newDir);    
+    this.board.snake.turn(newDir);
   }
 };
