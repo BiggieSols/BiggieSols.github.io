@@ -3,6 +3,8 @@ $(document).ready(function() {
   for(var i = 0; i < Math.pow(v.board.DIMENSION, 2); i++) {
     $("#grid").append("<div class='cell'></div>");
   }
+  
+  $("#start").css("visibility", "");
 
   $("#start").on("click", function() {
     $("#grid").focus();
