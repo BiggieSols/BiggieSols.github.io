@@ -1,0 +1,36 @@
+img {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+body {
+  padding-top: 70px;
+  color: #404040;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2 a {
+  color: #404040;
+}
+
+.example-project {
+  padding:10px 0px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+}
+
+.example-project:hover {
+  background-color: #CCFFCC;
+}
+
+.personal-info {
+  font-size: 19px;
+}
+
+.intro {
+  margin-top: 0;
+}
