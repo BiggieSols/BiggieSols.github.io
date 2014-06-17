@@ -1,11 +1,20 @@
+a, div, .btn {
+  -webkit-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+  -moz-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+  -o-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+  transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0; 
+}
+
 img {
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 body {
+  /*-webkit-font-smoothing: antialiased;*/
+  font-family: "Lato", sans-serif;
   padding-top: 70px;
-  color: #404040;
+  color: #555;
 }
 
 a:hover {
@@ -14,14 +23,31 @@ a:hover {
 }
 
 h2 a {
-  color: #404040;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  color: #555;
+}
+
+hr {
+  padding: 0;
+  margin: 0;
+}
+
+.brand {
+  font-size: 1.5em;
+}
+
+nav li {
+  font-size: 1.2em;
 }
 
 .example-project {
   padding:10px 0px;
   border-radius: 5px;
   margin-bottom: 0px;
-}
+/*  margin-left: 15px;
+  margin-right: 15px;
+*/}
 
 .example-project:hover {
   background-color: #CCFFCC;
@@ -33,4 +59,17 @@ h2 a {
 
 .intro {
   margin-top: 0;
+}
+
+.btn {
+  border: 0;
+}
+
+.git-link:hover {
+  background-color: #aaa;
+}
+
+.section {
+  margin-left: 0;
+  margin-right: 0;
 }
